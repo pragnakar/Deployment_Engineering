@@ -5,7 +5,7 @@
 **Version:** 1.0
 **Repository:** https://github.com/pragnakar/Deployment_Engineering
 **Parent Meta-Prompt:** LLM-Native Software Engineering — https://github.com/pragnakar/LLM_NATIVE_SOFTWARE_ENGINEERING
-**Companion Meta-Prompts:** DevOps, Database, UI-UX
+**Companion Meta-Prompts:** DevOps, Database, UI-UX, Security Engineering, MLOps, API Design, Testing Strategy, Documentation, Scrum
 
 ---
 
@@ -142,6 +142,18 @@ When an LLM coding agent is operating under this meta-prompt:
 - **Database:** The Database meta-prompt defines schema and data model requirements; this meta-prompt provisions the database instance (RDS, Cloud SQL, containerized Postgres, etc.) that implements them. Database connection credentials are managed through the secrets management system defined here.
 
 - **UI-UX:** No direct integration with design decisions. Frontend static assets may be served via CDN infrastructure provisioned here. The build pipeline defined here includes frontend build and asset publishing steps.
+
+- **Security Engineering:** Deployment Engineering provisions the runtime security controls that Security Engineering's threat model requires: non-root containers, network segmentation, image vulnerability scanning, and secret injection. Pre-commit hooks and CI pipeline security gates defined here enforce secrets management rules defined by Security Engineering.
+
+- **MLOps:** When the project includes machine learning, Deployment Engineering provisions the training infrastructure (GPU clusters, managed ML platforms) and model serving endpoints. MLOps defines what needs to be deployed; this meta-prompt defines the container, orchestration, and CI/CD patterns that deploy it.
+
+- **API Design:** API services defined by API Design are containerized, orchestrated, and delivered via the pipelines defined here. This meta-prompt ensures API services have appropriate resource limits, health probes, and rolling deployment strategies.
+
+- **Testing Strategy:** The CI/CD pipeline defined here executes the test suite defined by Testing Strategy. Pipeline gate ordering (unit → integration → E2E → scan) follows Testing Strategy's test pyramid. Integration test environments are provisioned as containerized infrastructure here.
+
+- **Documentation:** Deployment guides and runbooks for the infrastructure defined here are documented following Documentation meta-prompt standards. Architecture diagrams for deployment topology are maintained in `.build/docs/architecture.md`.
+
+- **Scrum:** Deployment Engineering's sprint deliverables include environment setup, pipeline configuration, and infrastructure provisioning tasks. Release cadence and deployment freeze windows coordinate with sprint review and release milestones defined in Scrum.
 
 ## Anti-Patterns
 
